@@ -1,0 +1,37 @@
+name: Run Python
+
+# Controls when the action will run. 
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '*/60 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+           python-version: 3.7
+      - name: 'Install requirements'
+        run: pip install requests
+      - name: 'Working'
+        run: 
+          python main.py
+
+      - name: commit
+        run: |
+          git config --global user.email oibox@protonmail.com
+          git config --global user.name codingbox
+          git add .
+          git commit -m "Auto Update by Action" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.personal_token }}
