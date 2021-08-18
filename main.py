@@ -32,7 +32,6 @@ for i in sub_link:
     for j in i.split():
         try:
             if (j.find("vmess://") == -1):
-                print(j)
                 continue
             node = json.loads(base64.b64decode(j[8:]).decode("utf-8"))
             rq = requests.get("http://ip-api.com/json/{}?lang=zh-CN".format(node['add']))
