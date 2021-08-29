@@ -8,7 +8,8 @@ import time
 sub_url = [
     "https://raw.fastgit.org/freefq/free/master/v2",
     "https://raw.fastgit.org/v2ray-links/v2ray-free/master/v2ray",
-    "https://jiang.netlify.app"
+    "https://jiang.netlify.app",
+    "https://raw.fastgit.org/ssrsub/ssr/raw/master/V2Ray"
 ]
 
 # 下载订阅链接将其合并
