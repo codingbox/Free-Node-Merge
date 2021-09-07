@@ -44,7 +44,7 @@ for i in sub_link:
                 country_count[ip_country] += 1
             else:
                 country_count[ip_country] = 1
-            newname = "{} {} {}".format(ip_country, (str)(country_count[ip_country]/10)+(str)(country_count[ip_country]%10), re.split(',| ', ip_info['org'])[0])
+            newname = "{} {} {}".format(ip_country, (str)(country_count[ip_country]//10)+(str)(country_count[ip_country]%10), re.split(',| ', ip_info['org'])[0])
             print("Rename node {} to {}".format(node['ps'], newname))
             node['ps'] = newname
             merged_link.append(node)
